@@ -35,7 +35,7 @@ resource "aws_security_group" "allow_ssh_http" {
 }
 
 # Criar a instância EC2 com chave existente e script de inicialização
-resource "aws_instance" "jenkins_master" {
+resource "aws_instance" "master" {
   ami           = "ami-0c7af5fe939f2677f"
   instance_type = "t3.micro"
   key_name      = "xp"
