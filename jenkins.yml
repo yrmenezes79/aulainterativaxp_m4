@@ -1,0 +1,47 @@
+---
+- name: Configurar Jenkins e dependências em um servidor Red Hat AWS
+  hosts: all
+  become: true
+  tasks:
+    - name: Instalar pacotes necessários
+      yum:
+        name:
+          - wget
+          - fontconfig
+          - java-17-openjdk
+        state: present
+
+    - name: Baixar o repositório Jenkins
+      get_url:
+        url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+        dest: /etc/yum.repos.d/jenkins.repo
+
+    - name: Importar chave Jenkins
+      rpm_key:
+        state: present
+        key: https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+    - name: Instalar Jenkins
+      yum:
+        name: jenkins
+        state: present
+
+    - name: Iniciar e habilitar o serviço Jenkins
+      systemd:
+        name: jenkins
+        state: started
+        enabled: true
+
+    - name: Aguardar Jenkins criar a senha inicial
+      wait_for:
+        path: /var/lib/jenkins/secrets/initialAdminPassword
+        timeout: 60
+
+    - name: Exibir senha inicial do Jenkins
+      command: cat /var/lib/jenkins/secrets/initialAdminPassword
+      register: jenkins_password
+      changed_when: false
+
+    - name: Mostrar senha inicial
+      debug:
+        msg: "A senha inicial é {{ jenkins_password.stdout }}"
