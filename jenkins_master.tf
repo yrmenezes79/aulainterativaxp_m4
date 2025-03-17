@@ -50,6 +50,6 @@ resource "aws_instance" "master" {
   EOF
 
   tags = {
-    Name = "Jenkins"
+    Name = "master"
   }
 }
