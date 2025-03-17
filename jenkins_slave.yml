@@ -1,0 +1,28 @@
+---
+- name: Configurar Jenkins e dependências em um servidor Red Hat AWS
+  hosts: slave
+  become: true
+  tasks:
+    - name: Instalar pacotes necessários
+      yum:
+        name:
+          - wget
+          - fontconfig
+          - java-17-openjdk
+          - git
+          - zlib-devel 
+          - pam-devel 
+          - openssl-devel 
+          - libtool 
+          - bison 
+          - flex 
+          - autoconf 
+          - gcc 
+          - make
+          - net-tools 
+          - lsof
+          - tcpdump 
+          - telnet 
+        state: present
+
+
