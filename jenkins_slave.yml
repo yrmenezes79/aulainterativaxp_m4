@@ -25,4 +25,9 @@
           - telnet 
         state: present
 
-
+    - name: Criar usuário Jenkins
+      user:
+        name: jenkins
+        home: /var/lib/Jenkins
+        shell: /bin/bash
+        state: present
