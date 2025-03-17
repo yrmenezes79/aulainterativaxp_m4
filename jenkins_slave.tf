@@ -7,8 +7,8 @@ variable "public_key" {
 }
 
 # Criar grupo de segurança
-resource "aws_security_group" "allow_ssh_http" {
-  name_prefix = "allow-ssh-http-"
+resource "aws_security_group" "allow_ssh" {
+  name_prefix = "allow-ssh-"
 
   ingress {
     description = "Allow SSH"
