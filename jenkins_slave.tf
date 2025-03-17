@@ -1,11 +1,3 @@
-# Declarar variável para a chave pública
-# export TF_VAR_public_key="$(cat ~/.ssh/id_ed25519.pub)"
-
-variable "public_key" {
-  description = "Chave pública SSH para acessar a instância"
-  type        = string
-}
-
 # Criar grupo de segurança
 resource "aws_security_group" "allow_ssh" {
   name_prefix = "allow-ssh-"
