@@ -1,6 +1,6 @@
 ---
 - name: Configurar Jenkins e dependências em um servidor Red Hat AWS
-  hosts: all
+  hosts: master
   become: true
   tasks:
     - name: Instalar pacotes necessários
