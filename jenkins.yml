@@ -9,6 +9,20 @@
           - wget
           - fontconfig
           - java-17-openjdk
+          - git
+          - zlib-devel 
+          - pam-devel 
+          - openssl-devel 
+          - libtool 
+          - bison 
+          - flex 
+          - autoconf 
+          - gcc 
+          - make
+          - net-tools 
+          - lsof
+          - tcpdump 
+          - telnet 
         state: present
 
     - name: Baixar o repositório Jenkins
