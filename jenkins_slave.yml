@@ -6,13 +6,11 @@
     - name: Instalar pacotes necessários
       yum:
         name:
-          - wget
           - fontconfig
           - java-17-openjdk
           - git
           - zlib-devel 
           - pam-devel 
-          - openssl-devel 
           - libtool 
           - bison 
           - flex 
@@ -22,7 +20,6 @@
           - net-tools 
           - lsof
           - tcpdump 
-          - telnet 
         state: present
 
     - name: Criar usuário Jenkins
