@@ -47,7 +47,7 @@ resource "aws_instance" "my_instance" {
   EOF
 
   tags = {
-    Name = "Master"
+    Name = "AulaXP"
   }
 }
 
